@@ -61,6 +61,9 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                
+                'django.template.context_processors.media',# <- новая строка
+
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -122,3 +125,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_ROOT = BASE_DIR / 'mediafiles/'#в какую папку должны загружаться файлы и с какого префикса должны начинаться адреса на эти файлы
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+LOGIN_REDIRECT_URL = 'stock:account'
+LOGIN_URL = 'login'
